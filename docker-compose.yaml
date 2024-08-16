@@ -1,0 +1,10 @@
+services:
+  database:
+    image: bitnami/postgresql:latest
+    container_name: example-api-database
+    environment:
+      - POSTGRESQL_USERNAME=docker
+      - POSTGRESQL_PASSWORD=docker
+      - POSTGRESQL_DATABASE=templatetsapi
+    ports:
+      - "5432:5432"

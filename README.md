@@ -1,5 +1,4 @@
-Template Repository
-
+Daily Diet API
 <!-- Edit this -->
 <!-- ![Unit Tests badge](https://github.com/rogerpoliver/repo-name/actions/workflows/unit-tests.yml/badge.svg) -->
 

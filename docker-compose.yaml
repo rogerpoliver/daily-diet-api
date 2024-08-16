@@ -1,10 +1,10 @@
 services:
   database:
     image: bitnami/postgresql:latest
-    container_name: example-api-database
+    container_name: dailydiet-database
     environment:
       - POSTGRESQL_USERNAME=docker
       - POSTGRESQL_PASSWORD=docker
-      - POSTGRESQL_DATABASE=templatetsapi
+      - POSTGRESQL_DATABASE=dailydiet
     ports:
       - "5432:5432"

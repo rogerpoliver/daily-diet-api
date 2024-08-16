@@ -13,7 +13,7 @@ jobs:
         env:
           POSTGRESQL_USERNAME: docker
           POSTGRESQL_PASSWORD: docker
-          POSTGRESQL_DATABASE: templatetsapi
+          POSTGRESQL_DATABASE: dailydiet
         ports:
           - "5432:5432"
 
@@ -28,4 +28,4 @@ jobs:
         env:
           HUSKY: 0
           JWT_SECRET: fake-testing-secret
-          DATABASE_URL: "postgresql://docker:docker@localhost:5432/templatetsapi?schema=public"
+          DATABASE_URL: "postgresql://docker:docker@localhost:5432/dialydiet?schema=public"

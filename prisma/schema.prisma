@@ -33,14 +33,14 @@ model User {
 }
 
 model Meal {
-  id            String   @id @default(uuid())
+  id            String    @id @default(uuid())
   name          String
-  description   String
-  date_and_time DateTime @default(now())
-  is_diet       Boolean
-  created_at    DateTime @default(now())
-  updated_at    DateTime @updatedAt
-  User          User?    @relation(fields: [user_id], references: [id])
+  description   String?
+  date_and_time DateTime? @default(now())
+  is_diet       Boolean?
+  created_at    DateTime  @default(now())
+  updated_at    DateTime  @updatedAt
+  User          User?     @relation(fields: [user_id], references: [id])
   user_id       String?
 
   @@map("meals")

@@ -9,17 +9,30 @@ Daily Diet API
 - [x] Must be possible to register;
 - [x] Must be possible to authenticate;
 - [x] Must be possible to retrieve the profile of a logged-in user;
-
-TBD
+- [ ] Must be possible to create a user;
+- [ ] Must be possible to register a meal with the following details:
+  - Name
+  - Description
+  - Date and Time
+  - Whether it is within the diet or not
+  - *Meals must be related to a user.*
+- [ ] Must be possible to edit a meal, allowing all details above to be changed;
+- [ ] Must be possible to delete a meal;
+- [ ] Must be possible to list all meals of a user;
+- [ ] Must be possible to view a single meal;
+- [ ] Must be possible to retrieve the user's metrics:
+  - Total number of meals registered;
+  - Total number of meals within the diet;
+  - Total number of meals outside the diet;
+  - Best sequence of meals within the diet;
 
 </details>
 
 <details>
   <summary>Business Rules</summary>
   
-- [x] user must not be able to register with a duplicate email;
-
-TBD
+- [x] User must not be able to register with a duplicate email;
+- [ ] The user can only view, edit, and delete the meals they created;
 
 </details>
 
@@ -31,6 +44,7 @@ TBD
 - [x] The user must be identified by a JWT (JSON Web Token);
 
 </details>
+
 
 ## Running the API
 

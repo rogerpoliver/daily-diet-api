@@ -37,11 +37,11 @@ model Meal {
   name          String
   description   String?
   date_and_time DateTime? @default(now())
-  is_diet       Boolean?
+  is_on_diet    Boolean?
   created_at    DateTime  @default(now())
   updated_at    DateTime  @updatedAt
-  User          User?     @relation(fields: [user_id], references: [id])
-  user_id       String?
+  user          User?     @relation(fields: [user_id], references: [id])
+  user_id       String
 
   @@map("meals")
 }

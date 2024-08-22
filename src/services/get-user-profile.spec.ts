@@ -1,10 +1,10 @@
-import { hash } from 'bcryptjs';
-import { beforeEach, describe, expect, it } from 'vitest';
+import { hash } from "bcryptjs";
+import { beforeEach, describe, expect, it } from "vitest";
 
-import { InMemoryUsersRepository } from '@/repositories/in-memory/in-memory-users.repository';
+import { InMemoryUsersRepository } from "@/repositories/in-memory/in-memory-users.repository";
 
-import { ResourceNotFoundError } from './errors/resource-not-found.error';
-import { GetUserProfileService } from './get-user-profile.service';
+import { ResourceNotFoundError } from "./errors/resource-not-found.error";
+import { GetUserProfileService } from "./get-user-profile.service";
 
 let usersRepository: InMemoryUsersRepository;
 let systemUnderTesting: GetUserProfileService;

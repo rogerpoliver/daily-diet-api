@@ -1,6 +1,6 @@
-import { randomUUID } from 'node:crypto';
-
 import type { Meal, Prisma } from "@prisma/client";
+
+import { randomUUID } from "node:crypto";
 
 import type { MealsRepository } from "../meals.repository";
 
@@ -12,8 +12,8 @@ export class InMemoryMealsRepository implements MealsRepository {
 			id: randomUUID(),
 			name: data.name,
 			description: data.description ?? null,
-			date_and_time: data.date_and_time ?? null,
-			is_diet: data.is_diet ?? null,
+			date_and_time: data.date_and_time ? new Date(data.date_and_time) : null,
+			is_on_diet: data.is_on_diet ?? null,
 			created_at: new Date(),
 			updated_at: new Date(),
 			user_id: data.user_id,

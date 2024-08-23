@@ -9,8 +9,8 @@ Daily Diet API
 - [x] Must be possible to register;
 - [x] Must be possible to authenticate;
 - [x] Must be possible to retrieve the profile of a logged-in user;
-- [ ] Must be possible to create a user;
-- [ ] Must be possible to register a meal with the following details:
+- [x] Must be possible to create a user;
+- [x] Must be possible to register a meal with the following details:
   - Name
   - Description
   - Date and Time

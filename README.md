@@ -1,4 +1,6 @@
 Daily Diet API
+[![Unit Tests](https://github.com/rogerpoliver/daily-diet-api/actions/workflows/run-unit-tests.yml/badge.svg)](https://github.com/rogerpoliver/daily-diet-api/actions/workflows/run-unit-tests.yml)
+[![End to End Tests](https://github.com/rogerpoliver/daily-diet-api/actions/workflows/run-e2e-tests.yml/badge.svg)](https://github.com/rogerpoliver/daily-diet-api/actions/workflows/run-e2e-tests.yml)
 <!-- Edit this -->
 <!-- ![Unit Tests badge](https://github.com/rogerpoliver/repo-name/actions/workflows/unit-tests.yml/badge.svg) -->
 

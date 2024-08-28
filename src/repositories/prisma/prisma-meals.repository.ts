@@ -1,4 +1,4 @@
-import { prisma } from '@/lib/prisma';
+import { prisma } from "@/lib/prisma";
 
 import type { Meal, Prisma } from "@prisma/client";
 
@@ -9,7 +9,7 @@ export class PrismaMealsRepository implements MealsRepository {
 		return await prisma.meal.create({ data });
 	}
 
-	edit(id: string): Promise<Meal> {
+	save(meal: Meal): Promise<Meal> {
 		throw new Error("Method not implemented.");
 	}
 

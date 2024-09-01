@@ -18,7 +18,7 @@ Daily Diet API
   - Date and Time
   - Whether it is within the diet or not
   - *Meals must be related to a user.*
-- [ ] Must be possible to edit a meal, allowing all details above to be changed;
+- [x] Must be possible to edit a meal, allowing all details above to be changed;
 - [ ] Must be possible to delete a meal;
 - [ ] Must be possible to list all meals of a user;
 - [ ] Must be possible to view a single meal;

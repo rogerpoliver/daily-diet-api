@@ -24,7 +24,7 @@ describe("Update Meal - Use Case", () => {
 	it("should update a meal", async () => {
 		const meal = await mealsRepository.create({
 			id: randomUUID(),
-			userId: randomUUID(),
+			user_id: randomUUID(),
 			name: "Lunch",
 			description: "Salad and chicken",
 			date_and_time: new Date(),
@@ -55,7 +55,7 @@ describe("Update Meal - Use Case", () => {
 	it("should update only provided fields", async () => {
 		const meal = await mealsRepository.create({
 			id: randomUUID(),
-			userId: randomUUID(),
+			user_id: randomUUID(),
 			name: "Lunch",
 			description: "Salad and chicken",
 			date_and_time: new Date(),

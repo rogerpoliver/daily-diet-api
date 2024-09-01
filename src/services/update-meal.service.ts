@@ -26,14 +26,14 @@ export class UpdateMealService {
 		date_and_time,
 		is_on_diet,
 	}: UpdateMealServiceRequest): Promise<UpdateMealServiceResponse> {
-		const meal = await this.mealsRepository.findById(mealId);
+		const foundMeal = await this.mealsRepository.findById(mealId);
 
-		if (!meal) {
+		if (!foundMeal) {
 			throw new ResourceNotFoundError();
 		}
 
-		await this.mealsRepository.save({
-			...meal,
+		const meal = await this.mealsRepository.save({
+			...foundMeal,
 			...(name !== undefined && { name }),
 			...(description !== undefined && { description }),
 			...(date_and_time !== undefined && { date_and_time }),

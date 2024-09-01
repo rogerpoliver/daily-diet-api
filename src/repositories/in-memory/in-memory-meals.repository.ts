@@ -25,14 +25,22 @@ export class InMemoryMealsRepository implements MealsRepository {
 	}
 
 	async save(meal: Meal): Promise<Meal> {
-		throw new Error("Method not implemented.");
+		const mealIndex = this.items.findIndex((item) => item.id === meal.id);
+
+		if (mealIndex >= 0) {
+			this.items[mealIndex] = meal;
+		}
+
+		return meal;
 	}
 
 	async findAll(userId: string): Promise<Meal[] | null> {
-		throw new Error("Method not implemented.");
+		const userMeals = this.items.filter((item) => item.user_id === userId);
+		return userMeals ?? [];
 	}
 
 	async findById(id: string): Promise<Meal | null> {
-		throw new Error("Method not implemented.");
+		const meal = this.items.find((item) => item.id === id);
+		return meal ?? null;
 	}
 }

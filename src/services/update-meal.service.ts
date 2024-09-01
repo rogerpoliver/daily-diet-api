@@ -1,15 +1,9 @@
 import type { MealsRepository } from "@/repositories/meals.repository";
-
+import type { Meal } from "@prisma/client";
 import { ResourceNotFoundError } from "./errors/resource-not-found.error";
 
-import type { Meal } from "@prisma/client";
-
-interface UpdateMealServiceRequest {
+interface UpdateMealServiceRequest extends Partial<Omit<Meal, "id">> {
 	mealId: string;
-	name?: string;
-	description?: string;
-	date_and_time?: Date;
-	is_on_diet?: boolean;
 }
 
 interface UpdateMealServiceResponse {
@@ -21,10 +15,7 @@ export class UpdateMealService {
 
 	async execute({
 		mealId,
-		name,
-		description,
-		date_and_time,
-		is_on_diet,
+		...updateData
 	}: UpdateMealServiceRequest): Promise<UpdateMealServiceResponse> {
 		const foundMeal = await this.mealsRepository.findById(mealId);
 
@@ -32,13 +23,13 @@ export class UpdateMealService {
 			throw new ResourceNotFoundError();
 		}
 
-		const meal = await this.mealsRepository.save({
+		const updatedMealData = {
 			...foundMeal,
-			...(name !== undefined && { name }),
-			...(description !== undefined && { description }),
-			...(date_and_time !== undefined && { date_and_time }),
-			...(is_on_diet !== undefined && { is_on_diet }),
-		});
+			...updateData,
+			id: foundMeal.id,
+		};
+
+		const meal = await this.mealsRepository.save(updatedMealData);
 
 		return {
 			meal,

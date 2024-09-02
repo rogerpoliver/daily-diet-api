@@ -20,7 +20,7 @@ Daily Diet API
   - *Meals must be related to a user.*
 - [x] Must be possible to edit a meal, allowing all details above to be changed;
 - [x] Must be possible to delete a meal;
-- [ ] Must be possible to list all meals of a user;
+- [x] Must be possible to list all meals of a user;
 - [ ] Must be possible to view a single meal;
 - [ ] Must be possible to retrieve the user's metrics:
   - Total number of meals registered;

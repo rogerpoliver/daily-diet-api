@@ -16,7 +16,7 @@ export class PrismaMealsRepository implements MealsRepository {
 		throw new Error("Method not implemented.");
 	}
 
-	findAll(userId: string): Promise<Meal[] | null> {
+	findByUser(userId: string): Promise<Meal[] | null> {
 		throw new Error("Method not implemented.");
 	}
 

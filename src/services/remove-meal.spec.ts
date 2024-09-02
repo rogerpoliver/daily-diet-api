@@ -35,7 +35,7 @@ describe("Remove Meal - Use Case", () => {
 			mealToBeRemoved,
 		});
 
-		const userMeals = await mealsRepository.findAll(mealToBeRemoved.user_id);
+		const userMeals = await mealsRepository.findByUser(mealToBeRemoved.user_id);
 
 		expect(userMeals).not.toContainEqual(mealToBeRemoved);
 

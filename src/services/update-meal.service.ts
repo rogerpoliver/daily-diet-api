@@ -4,6 +4,7 @@ import { ResourceNotFoundError } from "./errors/resource-not-found.error";
 
 interface UpdateMealServiceRequest extends Partial<Omit<Meal, "id">> {
 	mealId: string;
+	userId: string;
 }
 
 interface UpdateMealServiceResponse {
@@ -15,9 +16,10 @@ export class UpdateMealService {
 
 	async execute({
 		mealId,
+		userId,
 		...updateData
 	}: UpdateMealServiceRequest): Promise<UpdateMealServiceResponse> {
-		const foundMeal = await this.mealsRepository.findById(mealId);
+		const foundMeal = await this.mealsRepository.findById(mealId, userId);
 
 		if (!foundMeal) {
 			throw new ResourceNotFoundError();

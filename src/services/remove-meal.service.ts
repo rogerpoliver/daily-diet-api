@@ -18,7 +18,10 @@ export class RemoveMealService {
 	async execute({
 		mealToBeRemoved,
 	}: RemoveMealServiceRequest): Promise<RemoveMealServiceResponse> {
-		const foundMeal = await this.mealsRepository.findById(mealToBeRemoved.id);
+		const foundMeal = await this.mealsRepository.findById(
+			mealToBeRemoved.id,
+			mealToBeRemoved.user_id,
+		);
 
 		if (!foundMeal) {
 			throw new ResourceNotFoundError();

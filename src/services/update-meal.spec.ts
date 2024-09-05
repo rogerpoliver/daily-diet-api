@@ -33,6 +33,7 @@ describe("Update Meal - Use Case", () => {
 
 		const updatedMeal = await systemUnderTesting.execute({
 			mealId: meal.id,
+			userId: meal.user_id,
 			name: "Dinner",
 			description: "Rice, chicken and sweet potatoes",
 		});
@@ -47,6 +48,7 @@ describe("Update Meal - Use Case", () => {
 		await expect(
 			systemUnderTesting.execute({
 				mealId: randomUUID(),
+				userId: randomUUID(),
 				name: "Dinner",
 			}),
 		).rejects.toBeInstanceOf(ResourceNotFoundError);
@@ -64,6 +66,7 @@ describe("Update Meal - Use Case", () => {
 
 		const updatedMeal = await systemUnderTesting.execute({
 			mealId: meal.id,
+			userId: meal.user_id,
 			name: "Dinner",
 		});
 

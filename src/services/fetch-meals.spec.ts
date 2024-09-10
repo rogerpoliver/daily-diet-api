@@ -1,10 +1,9 @@
-import { randomUUID } from "node:crypto";
-import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { object } from "zod";
+import { randomUUID } from 'node:crypto';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { InMemoryMealsRepository } from "@/repositories/in-memory/in-memory-meals.repository";
+import { InMemoryMealsRepository } from '@/repositories/in-memory/in-memory-meals.repository';
 
-import { FetchMealsService } from "./fetch-meals.service";
+import { FetchMealsService } from './fetch-meals.service';
 
 let mealsRepository: InMemoryMealsRepository;
 let systemUnderTesting: FetchMealsService;

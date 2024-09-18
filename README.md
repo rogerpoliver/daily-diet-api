@@ -22,7 +22,7 @@ Daily Diet API
   - ✅ Controller / Prisma Repository;
 - Must be possible to register a meal with the following details:
   - ✅ Service / In-Memory Repository;
-  - ✍🏼 Controller / Prisma Repository;
+  - ✅ Controller / Prisma Repository;
     - Name
     - Description
     - Date and Time
@@ -33,7 +33,7 @@ Daily Diet API
   - ✍🏼 Controller / Prisma Repository;
 - Must be possible to delete a meal;
   - ✅ Service / In-Memory Repository;
-  - [] Controller / Prisma Repository;
+  - ✍🏼 Controller / Prisma Repository;
 - Must be possible to list all meals of a user;
   - ✅ Service / In-Memory Repository;
   - ✍🏼 Controller / Prisma Repository;

@@ -17,10 +17,20 @@ export class PrismaMealsRepository implements MealsRepository {
 	}
 
 	findByUser(userId: string): Promise<Meal[] | null> {
-		throw new Error("Method not implemented.");
+		const userMeals = prisma.meal.findMany({
+			where: {
+				user_id: userId,
+			},
+		});
+
+		return userMeals ?? [];
 	}
 
 	findById(id: string, userId: string): Promise<Meal | null> {
-		throw new Error("Method not implemented.");
+		const meal = prisma.meal.findUnique({
+			where: { id, user_id: userId },
+		});
+
+		return meal ?? null;
 	}
 }

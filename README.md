@@ -36,10 +36,10 @@ Daily Diet API
   - ✍🏼 Controller / Prisma Repository;
 - Must be possible to list all meals of a user;
   - ✅ Service / In-Memory Repository;
-  - ✍🏼 Controller / Prisma Repository;
+  - ✅ Controller / Prisma Repository;
 - Must be possible to view a single meal;
   - ✅ Service / In-Memory Repository;
-  - ✍🏼 Controller / Prisma Repository;
+  - ✅ Controller / Prisma Repository;
 - Must be possible to retrieve the user's metrics:
   - ✅ Service / In-Memory Repository;
   - ✍🏼 Controller / Prisma Repository;

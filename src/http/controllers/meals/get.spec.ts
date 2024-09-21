@@ -1,9 +1,9 @@
-import request from "supertest";
-import { afterAll, beforeAll, describe, expect, it } from "vitest";
+import request from 'supertest';
+import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 
-import { app } from "@/app";
-import { prisma } from "@/lib/prisma";
-import { createAndAuthenticateUser } from "@/utils/test/create-and-authenticate-user";
+import { app } from '@/app';
+import { prisma } from '@/lib/prisma';
+import { createAndAuthenticateUser } from '@/utils/test/create-and-authenticate-user';
 
 describe("Get Meal (e2e)", () => {
 	beforeAll(async () => {
@@ -37,7 +37,12 @@ describe("Get Meal (e2e)", () => {
 				isOnDiet: false,
 			});
 
-		const meal = await prisma.meal.findFirstOrThrow();
+		const [meal] = await prisma.meal.findMany({
+			skip: 1,
+			take: 1,
+		});
+
+		console.log(meal);
 
 		const response = await request(app.server)
 			.get(`/meals/${meal.id}`)

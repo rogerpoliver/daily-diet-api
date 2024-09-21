@@ -5,13 +5,15 @@ import type { Meal, Prisma } from "@prisma/client";
 import type { MealsRepository } from "../meals.repository";
 
 export class PrismaMealsRepository implements MealsRepository {
-	async remove(meal: Meal): Promise<Meal> {
-		return await prisma.meal.delete({
+	async remove(id: string, userId: string) {
+		return await prisma.meal.deleteMany({
 			where: {
-				id: meal.id,
+				id: id,
+				user_id: userId,
 			},
 		});
 	}
+
 	async create(data: Prisma.MealCreateInput) {
 		return await prisma.meal.create({ data });
 	}

@@ -1,6 +1,6 @@
 import type { Meal, Prisma } from "@prisma/client";
 
-import { randomUUID } from "node:crypto";
+import { randomUUID } from 'node:crypto';
 
 import type { MealsRepository } from "../meals.repository";
 
@@ -45,8 +45,14 @@ export class InMemoryMealsRepository implements MealsRepository {
 		return meal ?? null;
 	}
 
-	async remove(meal: Meal): Promise<Meal> {
-		const mealIndex = this.items.findIndex((item) => item.id === meal.id);
+	async remove(id: string, userId: string): Promise<Meal> {
+		const mealIndex = this.items.findIndex(
+			(item) => item.id === id && item.user_id === userId,
+		);
+
+		if (mealIndex === -1) {
+			throw new Error("Meal not found");
+		}
 
 		const [removedMeal] = this.items.splice(mealIndex, 1);
 		return removedMeal;

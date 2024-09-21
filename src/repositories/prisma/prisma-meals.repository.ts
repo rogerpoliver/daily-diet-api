@@ -1,23 +1,32 @@
-import { prisma } from "@/lib/prisma";
+import { prisma } from '@/lib/prisma';
 
 import type { Meal, Prisma } from "@prisma/client";
 
 import type { MealsRepository } from "../meals.repository";
 
 export class PrismaMealsRepository implements MealsRepository {
-	remove(meal: Meal): Promise<Meal> {
-		throw new Error("Method not implemented.");
+	async remove(meal: Meal): Promise<Meal> {
+		return await prisma.meal.delete({
+			where: {
+				id: meal.id,
+			},
+		});
 	}
 	async create(data: Prisma.MealCreateInput) {
 		return await prisma.meal.create({ data });
 	}
 
-	save(meal: Meal): Promise<Meal> {
-		throw new Error("Method not implemented.");
+	async save(meal: Meal): Promise<Meal> {
+		return await prisma.meal.update({
+			where: {
+				id: meal.id,
+			},
+			data: meal,
+		});
 	}
 
-	findByUser(userId: string): Promise<Meal[] | null> {
-		const userMeals = prisma.meal.findMany({
+	async findByUser(userId: string): Promise<Meal[] | null> {
+		const userMeals = await prisma.meal.findMany({
 			where: {
 				user_id: userId,
 			},
@@ -26,8 +35,8 @@ export class PrismaMealsRepository implements MealsRepository {
 		return userMeals ?? [];
 	}
 
-	findById(id: string, userId: string): Promise<Meal | null> {
-		const meal = prisma.meal.findUnique({
+	async findById(id: string, userId: string): Promise<Meal | null> {
+		const meal = await prisma.meal.findUnique({
 			where: { id, user_id: userId },
 		});
 

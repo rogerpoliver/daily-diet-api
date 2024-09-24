@@ -30,10 +30,10 @@ Daily Diet API
     - *Meals must be related to a user.*
 - Must be possible to edit a meal, allowing all details above to be changed;
   - ✅ Service / In-Memory Repository;
-  - ✍🏼 Controller / Prisma Repository;
+  - ✅ Controller / Prisma Repository;
 - Must be possible to delete a meal;
   - ✅ Service / In-Memory Repository;
-  - ✍🏼 Controller / Prisma Repository;
+  - ✅ Controller / Prisma Repository;
 - Must be possible to list all meals of a user;
   - ✅ Service / In-Memory Repository;
   - ✅ Controller / Prisma Repository;
@@ -54,7 +54,7 @@ Daily Diet API
   <summary>Business Rules</summary>
   
 - ✅ User must not be able to register with a duplicate email;
-- ✍🏼 The user can only view, edit, and delete the meals they created;
+- ✅ The user can only view, edit, and delete the meals they created;
 
 </details>
 

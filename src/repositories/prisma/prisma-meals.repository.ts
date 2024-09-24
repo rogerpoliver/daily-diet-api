@@ -6,7 +6,7 @@ import type { MealsRepository } from "../meals.repository";
 
 export class PrismaMealsRepository implements MealsRepository {
 	async remove(id: string, userId: string) {
-		return await prisma.meal.deleteMany({
+		await prisma.meal.deleteMany({
 			where: {
 				id: id,
 				user_id: userId,

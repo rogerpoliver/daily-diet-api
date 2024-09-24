@@ -25,7 +25,7 @@ export class RemoveMealService {
 			throw new ResourceNotFoundError();
 		}
 
-		await this.mealsRepository.remove(id, userId);
+		this.mealsRepository.remove(id, userId);
 
 		return {
 			removedMeal: foundMeal,

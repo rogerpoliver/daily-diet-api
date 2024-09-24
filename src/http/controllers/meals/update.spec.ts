@@ -5,7 +5,7 @@ import { app } from '@/app';
 import { prisma } from '@/lib/prisma';
 import { createAndAuthenticateUser } from '@/utils/test/create-and-authenticate-user';
 
-describe("Get Meal (e2e)", () => {
+describe("Update Meal (e2e)", () => {
 	beforeAll(async () => {
 		await app.ready();
 	});
@@ -14,7 +14,7 @@ describe("Get Meal (e2e)", () => {
 		await app.close();
 	});
 
-	it("should be able to get a meal", async () => {
+	it("should be able to update a meal", async () => {
 		const { token } = await createAndAuthenticateUser(app);
 
 		await request(app.server)
@@ -27,26 +27,21 @@ describe("Get Meal (e2e)", () => {
 				isOnDiet: true,
 			});
 
-		await request(app.server)
-			.post("/meals")
-			.set("Authorization", `Bearer ${token}`)
-			.send({
-				name: "Morning Meal",
-				description: "Bacon and Beans",
-				dateAndTime: "2023-10-01T08:00:00Z",
-				isOnDiet: false,
-			});
-
 		const [meal] = await prisma.meal.findMany({
-			skip: 1,
 			take: 1,
 		});
 
 		const response = await request(app.server)
-			.get(`/meals/${meal.id}`)
+			.put(`/meals/${meal.id}`)
 			.set("Authorization", `Bearer ${token}`)
-			.send();
+			.send({
+				name: "Updated Meal",
+				description: "Updated description",
+				dateAndTime: "2023-10-01T20:00:00Z",
+				isOnDiet: false,
+			});
 
 		expect(response.statusCode).toEqual(200);
+		expect(response.body.meal.name).toEqual("Updated Meal");
 	});
 });

@@ -1,10 +1,10 @@
 import { PrismaMealsRepository } from '@/repositories/prisma/prisma-meals.repository';
 
-import { FetchMealsService } from '../fetch-meals.service';
+import { UpdateMealService } from '../update-meal.service';
 
-export function makeFetchMealsUseCase() {
+export function makeUpdateMealUseCase() {
 	const mealsRepository = new PrismaMealsRepository();
-	const useCase = new FetchMealsService(mealsRepository);
+	const useCase = new UpdateMealService(mealsRepository);
 
 	return useCase;
 }

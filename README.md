@@ -42,7 +42,7 @@ Daily Diet API
   - ✅ Controller / Prisma Repository;
 - Must be possible to retrieve the user's metrics:
   - ✅ Service / In-Memory Repository;
-  - ✍🏼 Controller / Prisma Repository;
+  - ✅ Controller / Prisma Repository;
     - Total number of meals registered;
     - Total number of meals within the diet;
     - Total number of meals outside the diet;
